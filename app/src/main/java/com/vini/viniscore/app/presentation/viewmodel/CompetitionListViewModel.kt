@@ -30,8 +30,8 @@ class CompetitionListViewModel @Inject constructor(
         }
     }
 
-    fun getCompetitionById(competitionId: String): Competition {
-        return _competitions.value.firstOrNull { it.id == competitionId.toInt() }
+    fun getCompetitionById(competitionId: Int): Competition {
+        return _competitions.value.firstOrNull { it.id == competitionId }
             ?: throw IllegalArgumentException("Competition not found")
     }
 }

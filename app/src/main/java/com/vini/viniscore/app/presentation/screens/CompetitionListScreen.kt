@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.vini.viniscore.app.data.model.Competition
+import com.vini.viniscore.app.data.model.CompetitionDetailResponse
 import com.vini.viniscore.app.data.model.Table
 import com.vini.viniscore.app.presentation.viewmodel.CompetitionDetailViewModel
 import com.vini.viniscore.app.presentation.viewmodel.CompetitionListViewModel
@@ -32,10 +33,9 @@ import com.vini.viniscore.app.presentation.viewmodel.CompetitionListViewModel
 
 @Composable
 fun CompetitionListScreen(
-    viewModel: CompetitionListViewModel,
-    navController: NavController,
+    competitions: List<Competition>,
+    onItemClick: (Int) -> Unit,
 ) {
-    val competitions by viewModel.competitions.collectAsState()
     Log.d("teste", "competitions: $competitions")
 
     Column {
@@ -44,7 +44,7 @@ fun CompetitionListScreen(
             contentPadding = PaddingValues(16.dp)
         ) {
             items(competitions) { competition ->
-                CompetitionItem(competition, navController)
+                CompetitionItem(competition, onItemClick)
             }
         }
     }
@@ -53,15 +53,13 @@ fun CompetitionListScreen(
 @Composable
 fun CompetitionItem(
     competition: Competition,
-    navController: NavController,
+    onItemClick: (Int) -> Unit,
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 8.dp)
-            .clickable {
-                navController.navigate("competitionDetailScreen/${competition.id}")
-            },
+            .clickable{ onItemClick(competition.id) },
         verticalAlignment = Alignment.CenterVertically
     ) {
         Image(
@@ -80,13 +78,8 @@ fun CompetitionItem(
 
 @Composable
 fun CompetitionDetailScreen(
-    competitionId: Int,
-    viewModel: CompetitionDetailViewModel
+    competitionDetail: CompetitionDetailResponse?,
 ) {
-    val competitionDetail by viewModel.competitionDetail.collectAsState()
-
-    viewModel.fetchCompetitionDetails(competitionId)
-
     competitionDetail?.let { detail ->
         LazyColumn(
             modifier = Modifier.fillMaxSize(),

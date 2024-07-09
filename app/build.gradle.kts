@@ -73,12 +73,14 @@ dependencies {
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
     implementation(libs.navigation.compose)
+    implementation(libs.lifecycle.runtime.compose.android)
     implementation(libs.activity.compose)
     debugImplementation(libs.compose.ui.tooling)
 
 
     // Dagger-Hilt
     implementation(libs.dagger.hilt)
+    implementation(libs.androidx.hilt.navigation.compose)
     ksp(libs.dagger.hilt.compiler)
 
     // AndroidX and other libraries

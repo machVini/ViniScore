@@ -5,9 +5,9 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.kotlin.parcelize)
-    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.dagger.hilt.plugin)
     alias(libs.plugins.compose.compiler)
+    kotlin("plugin.serialization") version "2.0.0"
 }
 
 android {
@@ -86,6 +86,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.material.icons.extended)
+    implementation(libs.kotlinx.serialization.json)
 
     // Test dependencies
     testImplementation(libs.junit)

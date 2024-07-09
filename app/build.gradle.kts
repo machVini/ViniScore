@@ -3,10 +3,11 @@ import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.jetbrains.kotlin.kapt)
+    alias(libs.plugins.ksp)
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.dagger.hilt.plugin)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -57,6 +58,7 @@ dependencies {
     // Room
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 
     // Compose
     implementation(platform(libs.compose.bom))
@@ -71,16 +73,19 @@ dependencies {
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
     implementation(libs.navigation.compose)
+    implementation(libs.activity.compose)
     debugImplementation(libs.compose.ui.tooling)
+
 
     // Dagger-Hilt
     implementation(libs.dagger.hilt)
-    kapt(libs.dagger.hilt.compiler)
+    ksp(libs.dagger.hilt.compiler)
 
     // AndroidX and other libraries
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation(libs.material.icons.extended)
 
     // Test dependencies
     testImplementation(libs.junit)
@@ -90,7 +95,4 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.dagger.hilt.testing)
-}
-kapt {
-    correctErrorTypes = true
 }

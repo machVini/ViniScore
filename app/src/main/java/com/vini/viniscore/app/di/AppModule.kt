@@ -1,6 +1,7 @@
 package com.vini.viniscore.app.di
 
-import com.vini.viniscore.BuildConfig
+import com.vini.viniscore.BuildConfig.API_KEY
+import com.vini.viniscore.BuildConfig.BASE_URL
 import com.vini.viniscore.app.data.api.FootballApiService
 import com.vini.viniscore.app.data.repository.FootballRepository
 import dagger.Module
@@ -20,7 +21,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideApiKey(): String = BuildConfig.API_KEY
+    fun provideApiKey(): String = API_KEY
 
     @Provides
     @Singleton
@@ -34,19 +35,11 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRetryInterceptor(maxRetry: Int): RetryInterceptor {
-        return RetryInterceptor(maxRetry)
-    }
-
-    @Provides
-    @Singleton
     fun provideOkHttpClient(
         authInterceptor: AuthInterceptor,
-        retryInterceptor: RetryInterceptor,
     ): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(authInterceptor)
-            .addInterceptor(retryInterceptor)
             .build()
     }
 
@@ -54,7 +47,7 @@ object AppModule {
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://api.football-data.org/v4/")
+            .baseUrl(BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

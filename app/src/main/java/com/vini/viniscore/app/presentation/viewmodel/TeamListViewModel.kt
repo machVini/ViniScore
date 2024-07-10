@@ -2,7 +2,7 @@ package com.vini.viniscore.app.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.vini.viniscore.app.data.model.CompetitionDetailResponse
+import com.vini.viniscore.app.data.model.Team
 import com.vini.viniscore.app.data.repository.FootballRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -11,17 +11,17 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CompetitionDetailViewModel @Inject constructor(
+class TeamListViewModel @Inject constructor(
     private val repository: FootballRepository
 ) : ViewModel() {
 
-    private val _competitionDetail = MutableStateFlow<CompetitionDetailResponse?>(null)
-    val competitionDetail: StateFlow<CompetitionDetailResponse?> get() = _competitionDetail
+    private val _teams = MutableStateFlow<List<Team>>(emptyList())
+    val teams: StateFlow<List<Team>> get() = _teams
 
-    fun fetchCompetitionDetails(competitionId: Int) {
+    fun getTeamsDetails(leagueID: Int, season: Int) {
         viewModelScope.launch {
-            val response = repository.getCompetitionDetails(competitionId)
-            _competitionDetail.value = response
+            val result = repository.getTeams(leagueID, season).map { it.team }
+            _teams.value = result
         }
     }
 }

@@ -5,17 +5,17 @@ import androidx.navigation.compose.navigation
 import kotlinx.serialization.Serializable
 
 @Serializable
-object CompetitionGraph
+object LeagueGraph
 
-fun NavGraphBuilder.competitionGraph(
-    onNavigateToDetailScreen: (Int) -> Unit
+fun NavGraphBuilder.leagueGraph(
+    onNavigateToDetailScreen: (Int, Int) -> Unit
 ) {
-    navigation<CompetitionGraph>(
-        startDestination = CompetitionsRoute
+    navigation<LeagueGraph>(
+        startDestination = LeagueListRoute
     ) {
-        competitionListScreen(
+        leagueListScreen(
             onNavigateToDetailScreen = onNavigateToDetailScreen
         )
-        competitionDetailScreen()
+        teamListScreen()
     }
 }

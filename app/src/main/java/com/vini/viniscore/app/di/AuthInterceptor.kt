@@ -7,7 +7,8 @@ class AuthInterceptor(private val apiKey: String) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val original = chain.request()
         val request = original.newBuilder()
-            .header("X-Auth-Token", apiKey)
+            .header("x-rapidapi-key", apiKey)
+            .header("x-rapidapi-host", "v3.football.api-sports.io")
             .build()
 
         return chain.proceed(request)

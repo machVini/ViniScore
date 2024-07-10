@@ -1,16 +1,20 @@
 package com.vini.viniscore.app.data.api
 
-import com.vini.viniscore.app.data.model.CompetitionDetailResponse
-import com.vini.viniscore.app.data.model.CompetitionResponse
+import com.vini.viniscore.app.data.model.TeamsResponse
+import com.vini.viniscore.app.data.model.LeagueResponse
 import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface FootballApiService {
-    @GET("competitions")
-    suspend fun getCompetitions(): CompetitionResponse
+    data class ApiResponse<T>(
+        val response: T
+    )
+    @GET("leagues")
+    suspend fun getLeagues(): ApiResponse<List<LeagueResponse>>
 
-    @GET("competitions/{id}/standings")
-    suspend fun getCompetitionDetails(
-        @Path("id") competitionId: Int
-    ): CompetitionDetailResponse
+    @GET("teams")
+    suspend fun getTeams(
+        @Query("league") leagueID: Int,
+        @Query("season") season: Int,
+    ): ApiResponse<List<TeamsResponse>>
 }

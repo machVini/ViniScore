@@ -2,7 +2,7 @@ package com.vini.viniscore.app.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.vini.viniscore.app.data.model.Competition
+import com.vini.viniscore.app.data.model.League
 import com.vini.viniscore.app.data.repository.FootballRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,26 +12,26 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class CompetitionListViewModel @Inject constructor(
+class LeagueListViewModel @Inject constructor(
     private val footballRepository: FootballRepository
 ) : ViewModel() {
 
-    private val _competitions = MutableStateFlow<List<Competition>>(emptyList())
-    val competitions: StateFlow<List<Competition>> get() = _competitions
+    private val _leagues = MutableStateFlow<List<League>>(emptyList())
+    val leagues: StateFlow<List<League>> get() = _leagues
 
     init {
-        getCompetitions()
+        getLeagues()
     }
 
-    private fun getCompetitions() {
+    private fun getLeagues() {
         viewModelScope.launch {
-            val result = footballRepository.getCompetitions()
-            _competitions.value = result.competitions
+            val result = footballRepository.getLeagues()
+            _leagues.value = result.map { it.league }
         }
     }
 
-    fun getCompetitionById(competitionId: Int): Competition {
-        return _competitions.value.firstOrNull { it.id == competitionId }
+    fun getCompetitionById(competitionId: Int): League {
+        return _leagues.value.firstOrNull { it.id == competitionId }
             ?: throw IllegalArgumentException("Competition not found")
     }
 }

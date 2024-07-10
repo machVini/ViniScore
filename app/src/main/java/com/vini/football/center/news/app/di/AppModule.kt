@@ -1,9 +1,9 @@
-package com.vini.viniscore.app.di
+package com.vini.football.center.news.app.di
 
-import com.vini.viniscore.BuildConfig.API_KEY
-import com.vini.viniscore.BuildConfig.BASE_URL
-import com.vini.viniscore.app.data.api.FootballApiService
-import com.vini.viniscore.app.data.repository.FootballRepository
+import com.vini.football.center.news.BuildConfig.API_KEY
+import com.vini.football.center.news.BuildConfig.BASE_URL
+import com.vini.football.center.news.app.data.api.FootballApiService
+import com.vini.football.center.news.app.data.repository.FootballRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

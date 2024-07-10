@@ -1,14 +1,14 @@
-package com.vini.viniscore.app.presentation
+package com.vini.football.center.news.app.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import com.vini.viniscore.app.presentation.navigation.LeagueListRoute
-import com.vini.viniscore.app.presentation.navigation.teamListScreen
-import com.vini.viniscore.app.presentation.navigation.leagueListScreen
-import com.vini.viniscore.app.presentation.navigation.navigateToLeagueDetailsScreen
+import com.vini.football.center.news.app.presentation.navigation.LeagueListRoute
+import com.vini.football.center.news.app.presentation.navigation.teamListScreen
+import com.vini.football.center.news.app.presentation.navigation.leagueListScreen
+import com.vini.football.center.news.app.presentation.navigation.navigateToLeagueDetailsScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

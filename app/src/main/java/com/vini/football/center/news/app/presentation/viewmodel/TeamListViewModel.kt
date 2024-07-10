@@ -1,9 +1,9 @@
-package com.vini.viniscore.app.presentation.viewmodel
+package com.vini.football.center.news.app.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.vini.viniscore.app.data.model.Team
-import com.vini.viniscore.app.data.repository.FootballRepository
+import com.vini.football.center.news.app.data.model.Team
+import com.vini.football.center.news.app.data.repository.FootballRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

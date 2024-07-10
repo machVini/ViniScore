@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ViniScore"
+rootProject.name = "FC News"
 include(":app")

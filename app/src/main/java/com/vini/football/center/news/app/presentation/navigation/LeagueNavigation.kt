@@ -1,4 +1,4 @@
-package com.vini.viniscore.app.presentation.navigation
+package com.vini.football.center.news.app.presentation.navigation
 
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -7,10 +7,10 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import com.vini.viniscore.app.presentation.screens.TeamListScreen
-import com.vini.viniscore.app.presentation.screens.LeagueListScreen
-import com.vini.viniscore.app.presentation.viewmodel.TeamListViewModel
-import com.vini.viniscore.app.presentation.viewmodel.LeagueListViewModel
+import com.vini.football.center.news.app.presentation.screens.TeamListScreen
+import com.vini.football.center.news.app.presentation.screens.LeagueListScreen
+import com.vini.football.center.news.app.presentation.viewmodel.TeamListViewModel
+import com.vini.football.center.news.app.presentation.viewmodel.LeagueListViewModel
 import kotlinx.serialization.Serializable
 
 @Serializable

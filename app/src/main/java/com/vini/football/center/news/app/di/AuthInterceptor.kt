@@ -1,4 +1,4 @@
-package com.vini.viniscore.app.di
+package com.vini.football.center.news.app.di
 
 import okhttp3.Interceptor
 import okhttp3.Response

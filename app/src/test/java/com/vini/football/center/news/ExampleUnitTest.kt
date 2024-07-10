@@ -1,4 +1,4 @@
-package com.vini.viniscore
+package com.vini.football.center.news
 
 import org.junit.Test
 

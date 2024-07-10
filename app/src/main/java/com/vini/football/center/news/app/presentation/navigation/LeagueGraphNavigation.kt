@@ -1,4 +1,4 @@
-package com.vini.viniscore.app.presentation.navigation
+package com.vini.football.center.news.app.presentation.navigation
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.navigation

@@ -1,7 +1,7 @@
-package com.vini.viniscore.app.data.api
+package com.vini.football.center.news.app.data.api
 
-import com.vini.viniscore.app.data.model.TeamsResponse
-import com.vini.viniscore.app.data.model.LeagueResponse
+import com.vini.football.center.news.app.data.model.TeamsResponse
+import com.vini.football.center.news.app.data.model.LeagueResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

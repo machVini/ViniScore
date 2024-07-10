@@ -1,9 +1,8 @@
-package com.vini.viniscore.app.data.repository
+package com.vini.football.center.news.app.data.repository
 
-import android.util.Log
-import com.vini.viniscore.app.data.api.FootballApiService
-import com.vini.viniscore.app.data.model.TeamsResponse
-import com.vini.viniscore.app.data.model.LeagueResponse
+import com.vini.football.center.news.app.data.api.FootballApiService
+import com.vini.football.center.news.app.data.model.TeamsResponse
+import com.vini.football.center.news.app.data.model.LeagueResponse
 import javax.inject.Inject
 import javax.inject.Singleton
 

@@ -1,4 +1,4 @@
-package com.vini.viniscore
+package com.vini.football.center.news
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

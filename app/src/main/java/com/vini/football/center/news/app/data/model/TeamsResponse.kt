@@ -1,4 +1,4 @@
-package com.vini.viniscore.app.data.model
+package com.vini.football.center.news.app.data.model
 
 data class TeamsResponse(
     val team: Team,

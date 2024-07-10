@@ -11,11 +11,11 @@ plugins {
 }
 
 android {
-    namespace = "com.vini.viniscore"
+    namespace = "com.vini.football.center.news"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.vini.viniscore"
+        applicationId = "com.vini.football.center.news"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

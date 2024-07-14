@@ -49,7 +49,3 @@ fun NavGraphBuilder.teamListScreen(){
         TeamListScreen(details)
     }
 }
-
-fun NavHostController.navigateToLeagueDetailsScreen(leagueID: Int, season: Int) {
-    navigate(TeamListRoute(leagueID, season))
-}

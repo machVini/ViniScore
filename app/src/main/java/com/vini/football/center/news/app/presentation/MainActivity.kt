@@ -7,8 +7,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.vini.football.center.news.app.presentation.navigation.LeagueListRoute
 import com.vini.football.center.news.app.presentation.navigation.TeamListRoute
+import com.vini.football.center.news.app.presentation.navigation.TeamNewsRoute
 import com.vini.football.center.news.app.presentation.navigation.teamListScreen
 import com.vini.football.center.news.app.presentation.navigation.leagueListScreen
+import com.vini.football.center.news.app.presentation.navigation.teamNewsScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,7 +31,12 @@ class MainActivity : ComponentActivity() {
                         )
                     }
                 )
-                teamListScreen()
+                teamListScreen(
+                    onNavigateToTeamNewsScreen = { teamName ->
+                        navController.navigate(TeamNewsRoute(teamName))
+                    }
+                )
+                teamNewsScreen()
             }
         }
     }

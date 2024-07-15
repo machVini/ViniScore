@@ -8,7 +8,8 @@ import kotlinx.serialization.Serializable
 object LeagueGraph
 
 fun NavGraphBuilder.leagueGraph(
-    onNavigateToDetailScreen: (Int, Int) -> Unit
+    onNavigateToDetailScreen: (Int, Int) -> Unit,
+    onNavigateToTeamNewsScreen: (String) -> Unit,
 ) {
     navigation<LeagueGraph>(
         startDestination = LeagueListRoute
@@ -16,6 +17,9 @@ fun NavGraphBuilder.leagueGraph(
         leagueListScreen(
             onNavigateToDetailScreen = onNavigateToDetailScreen
         )
-        teamListScreen()
+        teamListScreen(
+            onNavigateToTeamNewsScreen = onNavigateToTeamNewsScreen
+        )
+        teamNewsScreen()
     }
 }

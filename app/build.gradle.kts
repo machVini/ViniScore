@@ -20,8 +20,10 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-        buildConfigField("String", "API_KEY", gradleLocalProperties(rootDir, providers).getProperty("API_KEY"))
-        buildConfigField("String", "BASE_URL", gradleLocalProperties(rootDir, providers).getProperty("BASE_URL"))
+        buildConfigField("String", "FOOTBALL_BASE_URL", gradleLocalProperties(rootDir, providers).getProperty("FOOTBALL_BASE_URL"))
+        buildConfigField("String", "FOOTBALL_API_KEY", gradleLocalProperties(rootDir, providers).getProperty("FOOTBALL_API_KEY"))
+        buildConfigField("String", "NEWS_BASE_URL", gradleLocalProperties(rootDir, providers).getProperty("NEWS_BASE_URL"))
+        buildConfigField("String", "NEWS_API_KEY", gradleLocalProperties(rootDir, providers).getProperty("NEWS_API_KEY"))
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -10,20 +10,19 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.foundation.lazy.items
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.vini.football.center.news.app.data.model.League
-import com.vini.football.center.news.app.data.model.Team
 
 
 @Composable
-fun LeagueListScreen(
+fun LeaguesScreen(
     leagues: List<League>,
     onItemClick: (Int, Int) -> Unit,
 ) {
@@ -60,47 +59,6 @@ fun LeagueItem(
         )
         Text(
             text = league.name,
-            style = MaterialTheme.typography.bodyMedium
-        )
-    }
-}
-
-@Composable
-fun TeamListScreen(
-    teams: List<Team>,
-) {
-    Column {
-        LazyColumn(
-            modifier = Modifier.fillMaxSize(),
-            contentPadding = PaddingValues(16.dp)
-        ) {
-            items(teams.sortedBy{it.name}) { team ->
-                TeamItem(team)
-            }
-        }
-    }
-}
-
-@Composable
-fun TeamItem(
-    team: Team,
-) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 8.dp)
-            .clickable {  },
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Image(
-            painter = rememberAsyncImagePainter(team.logo),
-            contentDescription = null,
-            modifier = Modifier
-                .size(40.dp)
-                .padding(end = 16.dp)
-        )
-        Text(
-            text = team.name,
             style = MaterialTheme.typography.bodyMedium
         )
     }

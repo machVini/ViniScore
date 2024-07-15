@@ -1,6 +1,5 @@
 package com.vini.football.center.news.app.data.api
 
-import com.vini.football.center.news.app.data.model.Article
 import com.vini.football.center.news.app.data.model.NewsResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
